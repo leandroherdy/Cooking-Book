@@ -15,6 +15,13 @@ psycopg2-binary = "^2.9.10"
 multi_line_output = 5
 line_length = 119
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.project.settings"
+django_find_project = false
+python_files = "test_*.py"
+testpaths = ["core"]
+filterwarnings = "ignore::DeprecationWarning:^(?!node\\.).*:"
+
 [tool.yapf]
 based_on_style = "google"
 align_closing_bracket_with_visual_indent = true
@@ -24,6 +31,10 @@ dedent_closing_brackets = true
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.1"
+pytest = "^8.3.3"
+pytest-django = "^4.9.0"
+pytest-xdist = "^3.6.1"
+model-bakery = "^1.20.0"
 
 [build-system]
 requires = ["poetry-core"]
